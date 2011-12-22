@@ -1,0 +1,12 @@
+#summary One-sentence summary of this page.
+Programmable Device for pets feeding automatically 
+
+= Introduction =
+
+The project goal is to feed pets (cats, dogs, etc...) automatically, controlled by programmable schedule and operating autonomously without any maintenance (except adding food in device) and without any external AC or DC power.
+ 
+Device is powered by solar panel and rechargeable battery that guarantees 5-6 days power without solar energy (in case of very bad weather).
+
+The battery charging and feeding schedule is controlled via Atmega328 (Arduino MiniPro) and custom designed electrical circuit.
+
+= Details =
