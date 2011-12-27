@@ -15,8 +15,8 @@ The project consists of hardware ([PetFeeder#The_Device the device]) and softwar
 
 == The Device ==
 Device itself consists of 
-* Food Container made of Plexiglas
-* Food Feeding Part
-* Solar Panel
-* VRLA Rechargeable Battery
-* Microcontroller and Electrical Circuit to control whole hardware
+ * Food Container made of Plexiglas
+ * Food Feeding Part
+ * Solar Panel
+ * VRLA Rechargeable Battery
+ * Microcontroller and Electrical Circuit to control whole hardware
