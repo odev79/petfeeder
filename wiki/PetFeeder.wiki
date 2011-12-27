@@ -11,7 +11,7 @@ The battery charging and feeding schedule is controlled via Atmega328 (Arduino M
 
 = Details =
 
-The project consists of hardware ([PetFeeder#The_Device]) and software ([http://code.google.com/p/petfeeder/source/browse/#svn%2Ftrunk Arduino code]) parts.
+The project consists of hardware ([PetFeeder#The_Device the device]) and software ([http://code.google.com/p/petfeeder/source/browse/#svn%2Ftrunk Arduino code]) parts.
 
 == The Device ==
 Device itself consists of 
