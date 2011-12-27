@@ -11,4 +11,13 @@ The battery charging and feeding schedule is controlled via Atmega328 (Arduino M
 
 = Details =
 
-The project consists of hardware (the device) and software ([http://code.google.com/p/petfeeder/source/browse/#svn%2Ftrunk Arduino code]) parts. 
+The project consists of hardware ([The_Device]) and software ([http://code.google.com/p/petfeeder/source/browse/#svn%2Ftrunk Arduino code]) parts.
+
+== The Device ==
+Device itself consists of 
+* Food Container made of Plexiglas
+* Food Feeding Part
+* Solar Panel
+* VRLA Rechargeable Battery
+* Microcontroller and Electrical Circuit to control whole hardware
+
