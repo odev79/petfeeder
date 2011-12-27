@@ -10,3 +10,4 @@ Device is powered by solar panel and rechargeable battery that guarantees 5-6 da
 The battery charging and feeding schedule is controlled via Atmega328 (Arduino MiniPro) and custom designed electrical circuit.
 
 = Details =
+http://2.bp.blogspot.com/-XQsJom1sIEM/TvnM7BurfXI/AAAAAAAAASM/2n1qb8IxRWg/s1600/PICT3961_resize.JPG
