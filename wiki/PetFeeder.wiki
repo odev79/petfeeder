@@ -15,8 +15,14 @@ The project consists of hardware ([PetFeeder#The_Device the device]) and softwar
 
 == The Device ==
 Device itself consists of 
- * Food Container made of Plexiglas
- * Food Feeding Part
+ * [PetFeeder#Food_Container Food Container]
+ * [PetFeeder#Food_Feeding_Part Food Feeding Part]
  * Solar Panel
  * VRLA Rechargeable Battery
  * Microcontroller and Electrical Circuit to control whole hardware
+
+
+=== Food Container === is a box made of Plexiglas constructed to prevent pets access to food or any damage of hardware parts inside. Food and hardware parts also separated by the container's inner division
+http://4.bp.blogspot.com/-Hq15365UFII/TvojRwkqT5I/AAAAAAAAAUw/qbYf1fVEBwo/s1600/feeder1_resize.png 
+
+=== Food Feeding Part === made of 
