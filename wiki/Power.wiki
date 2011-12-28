@@ -1,4 +1,4 @@
-#summary Power supply for Pet Feeder.
+#summary Power supply for [PetFeeder Pet Feeder].
 
 == Solar Panel ==
 The whole device works autonomously, without any external AC/DC power supply. For powering I use a 1.5 watt/12 volt solar panel.
