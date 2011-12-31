@@ -15,7 +15,7 @@
 
 #define KeyStandByTime 10
 
-#define wakePin 2                 // pin used for waking up
+#define wakePin 2                 // pin used for waking up, Allowed values 2 and 3
 
 #define KeyPadPin  0
 #define VExtPin  1
@@ -38,13 +38,10 @@
 #define SecondsPerCycle 1
 
 
-//int CyclN=0;
-
-//String LCDText="";
-
 boolean WokeByKey = false;
 bool IsDay=false;
 
+int KeyInterruptCode = wakePin-2;
 
 ChargeControl mCharger;
 KeyPad mKey;
@@ -57,28 +54,19 @@ void wakeUpNow()        // here the interrupt is handled after wakeup
 
 {
  
-
-  detachInterrupt(0);
+  detachInterrupt(KeyInterruptCode);
   
     WokeByKey =true;
-  //  mKey.PrevKey = '-' ;
     mKey.BlockWakeUpKey();
     mLCD.Begin();
-//    mLCD.Clear();
-//    lcd.clear();
-//    lcd.setCursor(0, 0);
-//    lcd.print(HelloText);
-//    lcd.setCursor(0, 1);
-    
-  //************  mKey.PrevKeyMillis=millis();
-  
+
 }
 
 void sleepNow()
 {
     WokeByKey = false;
     mKey.ResetKeyPad();
-    attachInterrupt(0, wakeUpNow, LOW);
+    attachInterrupt(KeyInterruptCode, wakeUpNow, LOW);
     
     DEBUG_PRINTLN("prepare sleep") ; 
 
@@ -92,9 +80,8 @@ void sleepNow()
 }
 
 
+
 void setup() {
- 
-  
   
   #ifdef DEBUG
     Serial.begin(9600);    
@@ -116,50 +103,18 @@ void setup() {
   mKey.InitKeyPad(KeyPadPin,KeyStandByTime,&mFeedSched);
   mLCD.InitLCD(LCD_RSPin,LCD_EnablePin,LCD_D4Pin,LCD_D5Pin,LCD_D6Pin,LCD_D7Pin);
   
-  //CyclN=0;
-  
-  
-  //digitalWrite(CapChargePin,HIGH);
-  
-  
-  attachInterrupt(0, wakeUpNow, LOW);
-  
-  
-  
-  
-  //wakeUpNow();
-  
-  
+  attachInterrupt(KeyInterruptCode, wakeUpNow, LOW);
+    
 }
 
 void loop() {
-  
-//  static unsigned long m1;
-//  m1=micros();
-  
-  // set the cursor to column 0, line 1
-  // (note: line 1 is the second row, since counting begins with 0):
-  
+    
   if(WokeByKey)
   {
-    //lcd.setCursor(0, 1);
-    
- //   DEBUG_PRINTLN("Key Loop");
     
     mKey.ProcessKey();
     mLCD.PrintRow(1,mKey.LCDRow1,false);
     mLCD.PrintRow(2,mKey.LCDRow2,true);
-   // mLCD.GetLCD().setCursor(0,0);
-   // mLCD.GetLCD().print(mKey.LCDRow1);
-    
-//    char K=mKey.ReadKey();
-//    if (K!=' ')
-//      mLCD.GetLCD().print(K);
- //        lcd.print(K);
-
-//     DEBUG_PRINTLN("ActiveSet ");
-//     DEBUG_PRINTLN(mFeedSched.ActiveSet);
-
 
     if (mKey.CheckStandby())
     {
@@ -170,12 +125,10 @@ void loop() {
   else
   {
     mCharger.DoControl();
-    
-  //  DEBUG_PRINTLN(mFeedSched.ActiveSet);
 
     if(mCharger.IsDay && !IsDay)
     {
-   //    DEBUG_PRINTLN("good morning");
+       DEBUG_PRINTLN("good morning");
        mLCD.Begin();   
        mLCD.PrintRow(1,"Good Morning",false);
        
@@ -198,18 +151,11 @@ void loop() {
           mCharger.VExt,mCharger.VBat,mCharger.IsCharging, mCharger.IsDay,
           mFeedSched.ActiveSet,mFeedSched.CurrSeconds,mFeedSched.IsMotorOn
                             );
-      
-    
-    //CyclN++;
+  
     }
     
- //   m1=micros()-m1;
- //   mLCD.PrintRow(2,String(m1));
-    
     sleepNow();
-  }
- // delay(20);
- 
+  } 
  
 }
 
